@@ -1,0 +1,12 @@
+[Unit]
+Description=LUMEN cooperation application receiver
+After=network.target
+[Service]
+User=www-data
+WorkingDirectory=/var/www/lumen/selfhost
+Environment=LUMEN_PUBLIC_ORIGIN=https://example.com
+Environment=LUMEN_DB_PATH=/var/lib/lumen/applications.sqlite3
+ExecStart=/var/www/lumen/selfhost/.venv/bin/gunicorn --bind 127.0.0.1:8001 --workers 2 --timeout 30 app:application
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target

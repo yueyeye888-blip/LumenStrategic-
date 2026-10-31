@@ -1,0 +1,16 @@
+[Unit]
+Description=Back up LUMEN cooperation applications
+
+[Service]
+Type=oneshot
+User=root
+WorkingDirectory=/var/www/lumen/current/selfhost
+Environment=LUMEN_DB_PATH=/var/lib/lumen/applications.sqlite3
+Environment=LUMEN_BACKUP_DIR=/var/backups/lumen
+ExecStart=/var/www/lumen/current/selfhost/.venv/bin/python backup_applications.py
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/var/backups/lumen /var/lib/lumen

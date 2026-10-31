@@ -1,0 +1,29 @@
+# Secrets and runtime configuration
+.env
+.env.*
+!*.env.example
+admin.env
+*.pem
+*.key
+*.p12
+
+# Databases and private exports
+*.db
+*.sqlite
+*.sqlite3
+*.csv
+backups/
+data/
+
+# Dependencies, caches and logs
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.py[cod]
+*.log
+.DS_Store
+
+# Local tooling
+.idea/
+.vscode/
